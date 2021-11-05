@@ -50,23 +50,23 @@ But the position of RET (EIP) might not be directly under the `ebp`, as compiler
 We can see that there is an aligment at the start of the main function
 
 ```console
-0x08048483 <+3>:	and    esp,0xfffffff0       -> bit alignment
+0x08048483 <+3>:  and    esp,0xfffffff0       -> bit alignment
 ```
 
-Lets use gdb to be check on how much bytes we needs to write before we can overwrite the `RET`
+Lets use gdb to check on how much bytes we needs to write before we can overwrite the `RET`
 
 ```console
 (gdb) disas main
 Dump of assembler code for function main:
-   0x08048480 <+0>:	push   ebp
-   0x08048481 <+1>:	mov    ebp,esp
-   0x08048483 <+3>:	and    esp,0xfffffff0
-   0x08048486 <+6>:	sub    esp,0x50
-   0x08048489 <+9>:	lea    eax,[esp+0x10]
-   0x0804848d <+13>:	mov    DWORD PTR [esp],eax
-   0x08048490 <+16>:	call   0x8048340 <gets@plt>
-   0x08048495 <+21>:	leave
-   0x08048496 <+22>:	ret
+   0x08048480 <+0>: push   ebp
+   0x08048481 <+1>: mov    ebp,esp
+   0x08048483 <+3>: and    esp,0xfffffff0
+   0x08048486 <+6>: sub    esp,0x50
+   0x08048489 <+9>: lea    eax,[esp+0x10]
+   0x0804848d <+13>:  mov    DWORD PTR [esp],eax
+   0x08048490 <+16>:  call   0x8048340 <gets@plt>
+   0x08048495 <+21>:  leave
+   0x08048496 <+22>:  ret
 End of assembler dump.
 (gdb) break *0x08048495                                                       -> set breakpoint before the return command
 Breakpoint 1 at 0x8048495
@@ -75,29 +75,29 @@ Starting program: /home/user/level1/level1 <<< $(python -c "print 'a'*64")
 
 Breakpoint 1, 0x08048495 in main ()
 (gdb) info registers                                                          -> get all the registers information
-eax            0xbffff6b0	-1073744208
-ecx            0xb7fd28c4	-1208145724
-edx            0xbffff6b0	-1073744208
-ebx            0xb7fd0ff4	-1208152076
-esp            0xbffff6a0	0xbffff6a0
-ebp            0xbffff6f8	0xbffff6f8
-esi            0x0	0
-edi            0x0	0
-eip            0x8048495	0x8048495 <main+21>
-eflags         0x200286	[ PF SF IF ID ]
-cs             0x73	115
-ss             0x7b	123
-ds             0x7b	123
-es             0x7b	123
-fs             0x0	0
-gs             0x33	51
+eax            0xbffff6b0 -1073744208
+ecx            0xb7fd28c4 -1208145724
+edx            0xbffff6b0 -1073744208
+ebx            0xb7fd0ff4 -1208152076
+esp            0xbffff6a0 0xbffff6a0
+ebp            0xbffff6f8 0xbffff6f8
+esi            0x0  0
+edi            0x0  0
+eip            0x8048495  0x8048495 <main+21>
+eflags         0x200286 [ PF SF IF ID ]
+cs             0x73 115
+ss             0x7b 123
+ds             0x7b 123
+es             0x7b 123
+fs             0x0  0
+gs             0x33 51
 (gdb) x/24wx $esp
-0xbffff6a0:	0xbffff6b0	0x0000002f	0xbffff6fc	0xb7fd0ff4                    -> esp start at 0xbffff6a0
-0xbffff6b0:	0x61616161	0x61616161	0x61616161	0x61616161                    -> all the 'a' char (0x61) that we give to the programs
-0xbffff6c0:	0x61616161	0x61616161	0x61616161	0x61616161
-0xbffff6d0:	0x61616161	0x61616161	0x61616161	0x61616161
-0xbffff6e0:	0x61616161	0x61616161	0x61616161	0x61616161                    -> the write stops here with 64 * a
-0xbffff6f0:	0x08048400	0x00000000	0x00000000	0xb7e454d3                    -> 0xbffff6f0 contains the EBP plus some empty paddings before we reach the RET address
+0xbffff6a0: 0xbffff6b0  0x0000002f  0xbffff6fc  0xb7fd0ff4                    -> esp start at 0xbffff6a0
+0xbffff6b0: 0x61616161  0x61616161  0x61616161  0x61616161                    -> all the 'a' char (0x61) that we give to the programs
+0xbffff6c0: 0x61616161  0x61616161  0x61616161  0x61616161
+0xbffff6d0: 0x61616161  0x61616161  0x61616161  0x61616161
+0xbffff6e0: 0x61616161  0x61616161  0x61616161  0x61616161                    -> the write stops here with 64 * a
+0xbffff6f0: 0x08048400  0x00000000  0x00000000  0xb7e454d3                    -> 0xbffff6f0 contains the EBP plus some empty paddings before we reach the RET address
 ```
 
 As we can see from the stack frame above, 64 * a is not enough to overwrite the return pointer
