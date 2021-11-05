@@ -28,7 +28,7 @@ int main(int argc, char** argv){
 }
 ```
 
-<h3>Step</h3>
+<h3>Analysis</h3>
 
 Base on the decompiled c code, we can see that as long as the input that we give to the program is equal to 423, it will spawn a shell
 

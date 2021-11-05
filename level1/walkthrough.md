@@ -15,7 +15,7 @@ void main() {
 }
 ```
 
-<h3>Step</h3>
+<h3>Analysis</h3>
 
 This program is using the function `gets` with is unsafe and vulnerable to `buffer overflow` exploit
 
@@ -58,11 +58,11 @@ Lets use gdb to check on how much bytes we needs to write before we can overwrit
 ```console
 (gdb) disas main
 Dump of assembler code for function main:
-   0x08048480 <+0>: push   ebp
-   0x08048481 <+1>: mov    ebp,esp
-   0x08048483 <+3>: and    esp,0xfffffff0
-   0x08048486 <+6>: sub    esp,0x50
-   0x08048489 <+9>: lea    eax,[esp+0x10]
+   0x08048480 <+0>:   push   ebp
+   0x08048481 <+1>:   mov    ebp,esp
+   0x08048483 <+3>:   and    esp,0xfffffff0
+   0x08048486 <+6>:   sub    esp,0x50
+   0x08048489 <+9>:   lea    eax,[esp+0x10]
    0x0804848d <+13>:  mov    DWORD PTR [esp],eax
    0x08048490 <+16>:  call   0x8048340 <gets@plt>
    0x08048495 <+21>:  leave

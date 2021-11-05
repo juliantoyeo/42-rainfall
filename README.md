@@ -38,3 +38,9 @@ x/2i $eip
 end
 ```
 
+Input bunch of characther into a program in gdb
+
+```console
+r <<< $(python -c "print 'a'*64")
+```
+
