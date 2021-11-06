@@ -3,7 +3,7 @@
 <h3>source.c</h3>
 
 ```console
-void p() {
+void p(void) {
   char str[64];
   uint ret;
 
@@ -22,7 +22,7 @@ void p() {
   }
 }
 
-void main() {
+void main(void) {
   p();
 }
 ```
