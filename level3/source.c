@@ -4,7 +4,7 @@
 int m = 0;
 
 void v(void) {
-  char* str[520];
+  char str[520];
 
   fgets(str, 512, stdin);
   printf(str);
@@ -13,7 +13,6 @@ void v(void) {
     system("/bin/sh");
   }
 }
-
 
 void main(void) {
   v();

@@ -6,7 +6,7 @@
 int m = 0;
 
 void v(void) {
-  char* str[520];
+  char str[520];
 
   fgets(str, 512, stdin);
   printf(str);
@@ -164,3 +164,7 @@ level4
 cat /home/user/level4/.pass
 b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa
 ```
+
+<h3>Helpful link for this exploit</h3>
+
+https://www.youtube.com/watch?v=0WvrSfcdq1I&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=21

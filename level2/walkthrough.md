@@ -91,8 +91,8 @@ cat /home/user/level3/.pass
 
 <h3>Helpful link for this exploit</h3>
 
-```console
 https://www.youtube.com/watch?v=HSlhY4Uy8SA&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=15
+
 https://www.youtube.com/watch?v=m17mV24TgwY&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=17
+
 http://shell-storm.org/shellcode/files/shellcode-811.php
-```
