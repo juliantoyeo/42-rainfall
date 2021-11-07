@@ -41,6 +41,10 @@ end
 Input bunch of characther into a program in gdb
 
 ```console
-r <<< $(python -c "print 'a'*64")
+r <<< $(python -c "print 'a'*64")                                 -> as a file, for program that use gets or fgets
+r `python -c "print 'a' * 64"`                                   -> as argv, for program that take input from argv
 ```
 
+Reversing c++ name mangling
+
+https://demangler.com/
