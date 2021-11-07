@@ -67,7 +67,7 @@ Next the `malloc` will manage this `page` and keep a `metadata` to keep track on
 | M |                            |      -> malloc will put the metadata (M) at the begining of the page to store the information of the area it owns
 +--------------------------------+
 
-1st malloc call
+1st malloc call (str = malloc(64))
 
 +--------------------------------+
 | M | B | 64 bytes |             |      -> malloc will create a block (B) which contain the info that the next 64 bytes is now reserve (not free) and
@@ -75,7 +75,7 @@ Next the `malloc` will manage this `page` and keep a `metadata` to keep track on
         | *str     |
         +----------+
 
-2nd malloc call
+2nd malloc call (malloc(4))
 
 +--------------------------------+
 | M | B | 64 bytes | B | 4 bytes |      -> malloc will create new block (B) which contain the info that the next 4 bytes is now reserve (not free) and
