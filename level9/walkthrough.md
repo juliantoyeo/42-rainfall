@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 }
 ```
 
-<h3>Step</h3>
+<h3>Analysis</h3>
 
 In this level, the program is written as c++ code and it was quite hard to reverse it, so this might not be super accurate
 

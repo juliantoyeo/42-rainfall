@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
 }
 ```
 
-<h3>Step</h3>
+<h3>Analysis</h3>
 
 For this program, the harder part would be the long `main()` in the asm form
 

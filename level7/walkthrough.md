@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
 }
 ```
 
-<h3>Step</h3>
+<h3>Analysis</h3>
 
 In this program, we can see there is several `malloc()` and `strcpy()` which means we could exploit the heap buffer overflow like the previous level
 

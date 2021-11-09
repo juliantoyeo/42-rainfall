@@ -25,7 +25,7 @@ void main(int argc, char** argv) {
 }
 ```
 
-<h3>Step</h3>
+<h3>Analysis</h3>
 
 In this program, there is `n()` which will give us the password to the next level, however this function will never get called
 
