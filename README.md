@@ -48,3 +48,5 @@ r `python -c "print 'a' * 64"`                                   -> as argv, for
 Reversing c++ name mangling
 
 https://demangler.com/
+
+AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUUVVVVWWWWXXXXYYYYZZZZ
