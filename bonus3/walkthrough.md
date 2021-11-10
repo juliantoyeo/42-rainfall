@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
 
 In this program, we can see that it is taking only 1 arg,
 
-At the atr of the program, it is reading the `.pass` and save it into the `file` pointer
+At the start of the program, it is reading the `.pass` and save it into the `file` pointer
 
 After checking that the `file` contain no error and the user have put only 1 arg for the program, it will put the content of the file into the local str variable
 
